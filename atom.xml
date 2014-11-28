@@ -4,7 +4,7 @@
   <title><![CDATA[My Octopress Blog]]></title>
   <link href="http://ryan715.github.com/atom.xml" rel="self"/>
   <link href="http://ryan715.github.com/"/>
-  <updated>2014-11-28T16:40:12+08:00</updated>
+  <updated>2014-11-28T17:17:56+08:00</updated>
   <id>http://ryan715.github.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -12,5 +12,24 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[hello again]]></title>
+    <link href="http://ryan715.github.com/blog/2014/11/28/hello-again/"/>
+    <updated>2014-11-28T17:16:00+08:00</updated>
+    <id>http://ryan715.github.com/blog/2014/11/28/hello-again</id>
+    <content type="html"><![CDATA[<p>hello, again.
+From now no, i&#8217;ll blog again.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[some change about route in rails4]]></title>
+    <link href="http://ryan715.github.com/blog/2014/11/28/some-change-about-route-in-rails4/"/>
+    <updated>2014-11-28T16:50:00+08:00</updated>
+    <id>http://ryan715.github.com/blog/2014/11/28/some-change-about-route-in-rails4</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
   
 </feed>
