@@ -4,7 +4,7 @@
   <title><![CDATA[My Octopress Blog]]></title>
   <link href="http://ryan715.github.com/atom.xml" rel="self"/>
   <link href="http://ryan715.github.com/"/>
-  <updated>2014-11-28T17:17:56+08:00</updated>
+  <updated>2014-11-28T17:37:32+08:00</updated>
   <id>http://ryan715.github.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -12,6 +12,28 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[subdomaininrails4]]></title>
+    <link href="http://ryan715.github.com/blog/2014/11/28/subdomaininrails4/"/>
+    <updated>2014-11-28T17:27:00+08:00</updated>
+    <id>http://ryan715.github.com/blog/2014/11/28/subdomaininrails4</id>
+    <content type="html"><![CDATA[<p>Today, i&#8217;ll blog something about subdomain in rails4.</p>
+
+<h1>subdomain.rb</h1>
+
+<p>you should add sobdomain.rb &#8220;`
+class Subdomain</p>
+
+<pre><code>def 
+
+end
+</code></pre>
+
+<p>end
+&#8220;`</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[hello again]]></title>
@@ -24,11 +46,22 @@ From now no, i&#8217;ll blog again.</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[some change about route in rails4]]></title>
-    <link href="http://ryan715.github.com/blog/2014/11/28/some-change-about-route-in-rails4/"/>
-    <updated>2014-11-28T16:50:00+08:00</updated>
-    <id>http://ryan715.github.com/blog/2014/11/28/some-change-about-route-in-rails4</id>
-    <content type="html"><![CDATA[
+    <title type="html"><![CDATA[some change subdomain in rails4]]></title>
+    <link href="http://ryan715.github.com/blog/2014/11/28/some-change-subdomain-in-rails4/"/>
+    <updated>2014-11-28T16:53:00+08:00</updated>
+    <id>http://ryan715.github.com/blog/2014/11/28/some-change-subdomain-in-rails4</id>
+    <content type="html"><![CDATA[<p>in rails4, when i add subdomain in libs, but it doesn&#8217;t work. so i add subdomain in route.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[find by in rails4]]></title>
+    <link href="http://ryan715.github.com/blog/2014/11/28/find-by-in-rails4/"/>
+    <updated>2014-11-28T16:30:00+08:00</updated>
+    <id>http://ryan715.github.com/blog/2014/11/28/find-by-in-rails4</id>
+    <content type="html"><![CDATA[<p>In rails4, you should need to code like this when you need to find by *</p>
+
+<p>Blog.find_by subdomain: request.subdomain</p>
 ]]></content>
   </entry>
   

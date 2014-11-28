@@ -1,20 +1,28 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://ryan715.github.com/blog/2014/11/28/some-change-about-route-in-rails4/</loc>
-        <lastmod>2014-11-28T16:50:23+08:00</lastmod>
+        <loc>http://ryan715.github.com/blog/2014/11/28/find-by-in-rails4/</loc>
+        <lastmod>2014-11-28T17:06:02+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://ryan715.github.com/blog/2014/11/28/some-change-subdomain-in-rails4/</loc>
+        <lastmod>2014-11-28T17:06:15+08:00</lastmod>
     </url>
     <url>
         <loc>http://ryan715.github.com/blog/2014/11/28/hello-again/</loc>
         <lastmod>2014-11-28T17:17:36+08:00</lastmod>
     </url>
     <url>
+        <loc>http://ryan715.github.com/blog/2014/11/28/subdomaininrails4/</loc>
+        <lastmod>2014-11-28T17:35:55+08:00</lastmod>
+    </url>
+    <url>
         <loc>http://ryan715.github.com/blog/archives/</loc>
-        <lastmod>2014-11-28T17:17:36+08:00</lastmod>
+        <lastmod>2014-11-28T17:35:55+08:00</lastmod>
     </url>
     <url>
         <loc>http://ryan715.github.com/</loc>
-        <lastmod>2014-11-28T17:17:36+08:00</lastmod>
+        <lastmod>2014-11-28T17:35:55+08:00</lastmod>
     </url>
     <url>
         <loc>http://ryan715.github.com/robots.txt</loc>
