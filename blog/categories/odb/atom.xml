@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: odb | My Octopress Blog]]></title>
+  <link href="http://ryan715.github.com/blog/categories/odb/atom.xml" rel="self"/>
+  <link href="http://ryan715.github.com/"/>
+  <updated>2015-09-01T18:25:52+08:00</updated>
+  <id>http://ryan715.github.com/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[mess, running]]></title>
+    <link href="http://ryan715.github.com/blog/2015/07/29/mess/"/>
+    <updated>2015-07-29T22:31:00+08:00</updated>
+    <id>http://ryan715.github.com/blog/2015/07/29/mess</id>
+    <content type="html"><![CDATA[<h3>About Mess</h3>
+
+<p>Today devotional is about Whose mess, it descrips some mess form our spiritually sense. It teaches us that do not judge people, cause we usually ignore our sin instead other's sin.</p>
+
+<h3>Running</h3>
+
+<p>I run today, but I don't want to run before. I run so fast today, I think the reason is that i didnot run so long time. Feeling so good after running.</p>
+
+<h3>Exploitting market</h3>
+
+<p>How to exploit market? The biggest problem after your company starts business. I wrote down some key points after conclued below</p>
+
+<ul>
+<li>The product is the important thing, you must understand the selling points about products clearly.</li>
+<li>Introduction your businesses to freinds or clients who worked before, telling them what they got it from products, the product how to solve their problems.</li>
+<li>You need a website to present the product demo.</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>

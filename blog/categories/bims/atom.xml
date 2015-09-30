@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: bims | My Octopress Blog]]></title>
+  <link href="http://ryan715.github.com/blog/categories/bims/atom.xml" rel="self"/>
+  <link href="http://ryan715.github.com/"/>
+  <updated>2015-09-01T18:25:52+08:00</updated>
+  <id>http://ryan715.github.com/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Dev Plan]]></title>
+    <link href="http://ryan715.github.com/blog/2015/09/01/dev-plan/"/>
+    <updated>2015-09-01T10:53:00+08:00</updated>
+    <id>http://ryan715.github.com/blog/2015/09/01/dev-plan</id>
+    <content type="html"><![CDATA[<h3>blablacar</h3>
+
+<ul>
+<li><p>Add blog features? is it nessessary?</p></li>
+<li><p>public access</p></li>
+</ul>
+
+
+<h3>bims</h3>
+
+<ol>
+    <li>Add account UI</li>
+    <li>Account CRUD</li>
+    <li>Add apple developer ios certifile </li>
+</ol>
+
+
+<h3>my store</h3>
+
+<p>Helping Clare building a cake online store, to learn how to extend the spree framework.Today tasks are below</p>
+
+<ol>
+<li>change logo</li>
+<li>change store name</li>
+<li>search a bakery bootstrap template to custome the page</li>
+</ol>
+
+
+
+]]></content>
+  </entry>
+  
+</feed>
