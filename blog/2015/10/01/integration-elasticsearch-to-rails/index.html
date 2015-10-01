@@ -1,24 +1,97 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[My Octopress Blog]]></title>
-  <link href="http://ryan715.github.io/atom.xml" rel="self"/>
-  <link href="http://ryan715.github.io/"/>
-  <updated>2015-10-01T11:13:15+08:00</updated>
-  <id>http://ryan715.github.io/</id>
-  <author>
-    <name><![CDATA[Your Name]]></name>
-    
-  </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Integration ElasticSearch to Rails - My Octopress Blog</title>
+  <meta name="author" content="Your Name">
 
   
-  <entry>
-    <title type="html"><![CDATA[Integration ElasticSearch to Rails]]></title>
-    <link href="http://ryan715.github.io/blog/2015/10/01/integration-elasticsearch-to-rails/"/>
-    <updated>2015-10-01T11:01:21+08:00</updated>
-    <id>http://ryan715.github.io/blog/2015/10/01/integration-elasticsearch-to-rails</id>
-    <content type="html"><![CDATA[<h3>导言</h3>
+  <meta name="description" content="导言 这两天项目要求，把现有的搜索改成ElasticSearch(后面简称es)。之前接触 过一些es，后来就开始捣鼓。记得railcasts上面有讲过相关视频，重温了下就 开始弄，没弄多久发现上面用的tire已经retire了。为了让更多的朋友们不走冤枉路，所以才有了此文。 简介 &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ryan715.github.io/blog/2015/10/01/integration-elasticsearch-to-rails">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:ryan715.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Integration ElasticSearch to Rails</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-10-01T11:01:21+08:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h3>导言</h3>
 
 <p>  这两天项目要求，把现有的搜索改成ElasticSearch(后面简称es)。之前接触 过一些es，后来就开始捣鼓。记得railcasts上面有讲过相关视频，重温了下就  开始弄，没弄多久发现上面用的<a href="https://github.com/karmi/retire">tire</a>已经retire了。为了让更多的朋友们不走冤枉路，所以才有了此文。</p>
 
@@ -165,136 +238,126 @@
 <a href="http://www.spacevatican.org/2012/6/3/fun-with-elasticsearch-s-children-and-nested-documents/">http://www.spacevatican.org/2012/6/3/fun-with-elasticsearch-s-children-and-nested-documents/</a></p>
 
 <p>可以了解，railcast的es介绍 <a href="http://railscasts.com/episodes/306-elasticsearch-part-1">http://railscasts.com/episodes/306-elasticsearch-part-1</a></p>
-]]></content>
-  </entry>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
   
-  <entry>
-    <title type="html"><![CDATA[I am back again]]></title>
-    <link href="http://ryan715.github.io/blog/2015/09/30/i-am-back-again/"/>
-    <updated>2015-09-30T17:36:05+08:00</updated>
-    <id>http://ryan715.github.io/blog/2015/09/30/i-am-back-again</id>
-    <content type="html"><![CDATA[<p>I'am back again with more passion and creative. I will record my life and code posts in here.</p>
-]]></content>
-  </entry>
+
+<span class="byline author vcard">Posted by <span class="fn">Your Name</span></span>
+
+      
+
+
+
+
+
+
+
+
   
-  <entry>
-    <title type="html"><![CDATA[Dev Plan]]></title>
-    <link href="http://ryan715.github.io/blog/2015/09/01/dev-plan/"/>
-    <updated>2015-09-01T10:53:00+08:00</updated>
-    <id>http://ryan715.github.io/blog/2015/09/01/dev-plan</id>
-    <content type="html"><![CDATA[<h3>blablacar</h3>
-
-<ul>
-<li><p>Add blog features? is it nessessary?</p></li>
-<li><p>public access</p></li>
-</ul>
 
 
-<h3>bims</h3>
+<time datetime="2015-10-01T11:01:21+08:00" pubdate data-updated="true"></time>
+      
 
-<ol>
-    <li>Add account UI</li>
-    <li>Account CRUD</li>
-    <li>Add apple developer ios certifile </li>
-</ol>
-
-
-<h3>my store</h3>
-
-<p>Helping Clare building a cake online store, to learn how to extend the spree framework.Today tasks are below</p>
-
-<ol>
-<li>change logo</li>
-<li>change store name</li>
-<li>search a bakery bootstrap template to custome the page</li>
-</ol>
-
-
-
-]]></content>
-  </entry>
+<span class="categories">
   
-  <entry>
-    <title type="html"><![CDATA[mess, running]]></title>
-    <link href="http://ryan715.github.io/blog/2015/07/29/mess/"/>
-    <updated>2015-07-29T22:31:00+08:00</updated>
-    <id>http://ryan715.github.io/blog/2015/07/29/mess</id>
-    <content type="html"><![CDATA[<h3>About Mess</h3>
-
-<p>Today devotional is about Whose mess, it descrips some mess form our spiritually sense. It teaches us that do not judge people, cause we usually ignore our sin instead other&rsquo;s sin.</p>
-
-<h3>Running</h3>
-
-<p>I run today, but I don&rsquo;t want to run before. I run so fast today, I think the reason is that i didnot run so long time. Feeling so good after running.</p>
-
-<h3>Exploitting market</h3>
-
-<p>How to exploit market? The biggest problem after your company starts business. I wrote down some key points after conclued below</p>
-
-<ul>
-<li>The product is the important thing, you must understand the selling points about products clearly.</li>
-<li>Introduction your businesses to freinds or clients who worked before, telling them what they got it from products, the product how to solve their problems.</li>
-<li>You need a website to present the product demo.</li>
-</ul>
-
-]]></content>
-  </entry>
+    <a class='category' href='/blog/categories/elasticsearch/'>elasticsearch</a>, <a class='category' href='/blog/categories/ruby-on-rails/'>ruby on rails</a>
   
-  <entry>
-    <title type="html"><![CDATA[subdomaininrails4]]></title>
-    <link href="http://ryan715.github.io/blog/2014/11/28/subdomaininrails4/"/>
-    <updated>2014-11-28T17:27:00+08:00</updated>
-    <id>http://ryan715.github.io/blog/2014/11/28/subdomaininrails4</id>
-    <content type="html"><![CDATA[<p>Today, i&rsquo;ll blog something about subdomain in rails4.</p>
-
-<h1>subdomain.rb</h1>
-
-<p>you should add sobdomain.rb</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>class
-</span><span class='line'>  def 
-</span><span class='line'>      
-</span><span class='line'>  end
-</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
+</span>
 
 
-
-]]></content>
-  </entry>
+    </p>
+    
+      <div class="sharing">
   
-  <entry>
-    <title type="html"><![CDATA[hello again]]></title>
-    <link href="http://ryan715.github.io/blog/2014/11/28/hello-again/"/>
-    <updated>2014-11-28T17:16:00+08:00</updated>
-    <id>http://ryan715.github.io/blog/2014/11/28/hello-again</id>
-    <content type="html"><![CDATA[<p>hello, again.
-From now no, i&rsquo;ll blog again.</p>
-]]></content>
-  </entry>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ryan715.github.io/blog/2015/10/01/integration-elasticsearch-to-rails/" data-via="" data-counturl="http://ryan715.github.io/blog/2015/10/01/integration-elasticsearch-to-rails/" >Tweet</a>
   
-  <entry>
-    <title type="html"><![CDATA[some change subdomain in rails4]]></title>
-    <link href="http://ryan715.github.io/blog/2014/11/28/some-change-subdomain-in-rails4/"/>
-    <updated>2014-11-28T16:53:00+08:00</updated>
-    <id>http://ryan715.github.io/blog/2014/11/28/some-change-subdomain-in-rails4</id>
-    <content type="html"><![CDATA[<p>in rails4, when i add subdomain in libs, but it doesn&rsquo;t work. so i add subdomain in route.</p>
-]]></content>
-  </entry>
   
-  <entry>
-    <title type="html"><![CDATA[find by in rails4]]></title>
-    <link href="http://ryan715.github.io/blog/2014/11/28/find-by-in-rails4/"/>
-    <updated>2014-11-28T16:30:00+08:00</updated>
-    <id>http://ryan715.github.io/blog/2014/11/28/find-by-in-rails4</id>
-    <content type="html"><![CDATA[<p>In rails4, you should need to code like this when you need to find by *</p>
+  
+</div>
 
-<p>Blog.find_by subdomain: request.subdomain</p>
-]]></content>
-  </entry>
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/09/30/i-am-back-again/" title="Previous Post: I am back again">&laquo; I am back again</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
   
-</feed>
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/10/01/integration-elasticsearch-to-rails/">Integration ElasticSearch to Rails</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/09/30/i-am-back-again/">I am back again</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/09/01/dev-plan/">Dev Plan</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/07/29/mess/">mess, running</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/11/28/subdomaininrails4/">subdomaininrails4</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
