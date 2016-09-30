@@ -2,7 +2,9 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://ryan715.github.io
+
+url: http://ryan715.github.com
+
 title: My Octopress Blog
 subtitle: A blogging framework for hackers.
 author: Your Name
