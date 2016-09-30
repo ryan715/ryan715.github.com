@@ -1,0 +1,506 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Some common gems for we build Ruby on Rails applications - My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+
+  
+  <meta name="description" content="In this post, I will share some common gems that we use for building RoR applications. bcrypt Sometimes, we build user authentication features &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ryan715.github.io/blog/2015/10/01/some-common-gems-for-we-build-ruby-on-rails-applications">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:ryan715.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Some Common Gems for We Build Ruby on Rails Applications</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-10-01T11:16:53+08:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>In this post, I will share some common gems that we use for building RoR applications.</p>
+
+<h6>bcrypt</h6>
+
+<p>Sometimes, we build user authentication features without the use of a devise gem. To solve the storing of passwords we use bcrypt. It allows you to easily store a secure hash of users passwords.</p>
+
+<p>Follow some steps below
+1. Install
+In your Gemfile, add codes below</p>
+
+<pre><code>gem 'bcrypt'
+</code></pre>
+
+
+<p>then run &ldquo;bundle install&rdquo; commands.
+2. Migrate your user table</p>
+
+<pre><code>add_column :table_name, :password_digest, :string
+</code></pre>
+
+
+<p>3.Update user model file.
+In your users model file, add the code below</p>
+
+<pre><code> has_secure_password
+</code></pre>
+
+
+<p>That&rsquo;s it.</p>
+
+<h6>simple_form</h6>
+
+<p>We always encounter CURD tasks when we build an admin    dashboard. A simple form gem is really the best option, it can help us to solve a ton of html tags problems.</p>
+
+<p>Basic Usage</p>
+
+<pre><code>＃ definition form url
+<%= simple_form_for @post do |f| %>
+＃ model collection, dropdown list html tag
+<%= f.input :user_id, collection @users %>
+＃ textfield html tag
+<%= f.input :content %>
+＃ submit
+<%= f.submit '提交' %>
+<% end %>
+</code></pre>
+
+
+<h6>annotate</h6>
+
+<p>You don&rsquo;t always know the schemas when you look at the models. Try annotate gem, it helps you to add comment summaraizing to the current schema.
+When you have installed and run &lsquo;bundle exec annotate&rsquo;, you will find it is very clear to understand models. Like this:</p>
+
+<pre><code># == Schema Information
+# Table name: users
+#  id              :integer          not null, primary key
+#  nickname        :string(255)
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  password_digest :string(255)
+#  remember_token  :string(255)
+#
+
+class User < ActiveRecord::Base
+  before_save { self.email = email.downcase }
+  before_create :create_remember_token
+</code></pre>
+
+
+<h6>will_paginate</h6>
+
+<p>In Ruby on Rails world, To develop paginate feature is really easy, will_paginate gem helps you to handle a lot of things about pagination.</p>
+
+<p>How to use? There is a post class need to paginate.</p>
+
+<pre><code>
+＃ In model
+@posts = Post.paginate(page: params[:paeg]
+＃ or 
+@posts = Post.paginate(page: params[:page], per_page: 10)
+＃ In page
+<%= will_paginate @posts %></code></pre>
+
+
+<h6>puma</h6>
+
+<p>Unlike other Ruby Webservers, Puma was built for speed and parallelism. Puma is a small library that provides a very fast and concurrent HTTP1.1 server for Ruby web applications. It is designed for running Rack apps only.</p>
+
+<p>You can install puma gem very easily, add codes below in your gemfile.</p>
+
+<pre><code>gem 'puma'
+</code></pre>
+
+
+<p>Then start your server</p>
+
+<pre><code>rails s Puma
+</code></pre>
+
+
+<h6>better_errors</h6>
+
+<p>Provides a better page for Rails and other Rack apps. Includes sources code inspection, a live REPL and local/instance variable inspection for all stack frames.</p>
+
+<p>After we finish installing beter_errors gem, when the error pages appear, like this:
+{<1>}<img src="http://asciicasts.com/system/photos/1446/original/E402I02.png" alt="" />
+Woo, It looks very nice, it helps us to find the problems exactly.</p>
+
+<h6>rails_panel</h6>
+
+<p>This is an extension for Chrome which adds a development log withn the brower. As we visit various pages in our application we should see an entry for each one in the panel. This works for AJAX requests too.
+{<2>}<img src="http://asciicasts.com/system/photos/1450/original/E402I06.png" alt="" /></p>
+
+<h5>capistrano</h5>
+
+<p>Capistrano gem is a remote server automation tool. It help us to deploy a rails server more convenient.
+First, you need to install the gem in your gemfile, and bundle it.</p>
+
+<pre><cod>group :development do
+  gem 'capistrano', '~> 3.3.0'
+  gem 'capistrano-rails'
+  gem 'capistrano-bundler'
+end
+</code></pre>
+
+
+<p>The second step is to initiate it.</p>
+
+<pre><code>cap install</code></pre>
+
+
+<p>The third step, the complicated step, to configure the cap file.</p>
+
+<pre><code># config valid only for current version of Capistrano
+lock '3.3.5'
+
+set :application, '[projectname]'
+set :repo_url, 'git@github.com:[username]/[projectname].git'
+
+＃ Default branch is :master
+＃ ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
+
+＃ Default deploy_to directory is /var/www/my_app_name
+set :deploy_to, '/var/www/[projectname]'
+
+＃ Default value for :scm is :git
+set :scm, :git
+set :rbenv_type, :system
+set :rbenv_path, '/home/deploy/.rbenv'
+set :rbenv_ruby, '2.2.0'
+set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
+set :rbenv_map_bins, %w{rake gem bundle ruby rails}
+
+set :default_environment, {
+    'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
+}
+
+
+＃ puma
+set :puma_rackup, -> { File.join(current_path, 'config.ru') }
+set :puma_state, "#{shared_path}/tmp/pids/puma.state"
+set :puma_pid, "#{shared_path}/tmp/pids/puma.pid"
+set :puma_bind, "unix://#{shared_path}/tmp/sockets/puma.sock"    #accept array for multi-bind
+set :puma_conf, "#{shared_path}/puma.rb"
+set :puma_env, fetch(:rack_env, fetch(:rails_env, 'staging'))
+set :puma_access_log, "#{shared_path}/log/puma_error.log"
+set :puma_error_log, "#{shared_path}/log/puma_access.log"
+set :puma_role, :app
+set :puma_threads, [0, 16]
+set :puma_workers, 0
+set :puma_worker_timeout, nil
+set :puma_init_active_record, false
+set :puma_preload_app, true
+
+
+＃ Default value for :format is :pretty
+＃ set :format, :pretty
+
+＃ Default value for :log_level is :debug
+＃ set :log_level, :debug
+
+＃ Default value for :pty is false
+＃ set :pty, true
+
+＃ Default value for :linked_files is []
+set :linked_files, %w{config/database.yml config/secrets.yml config/env.yml}
+
+＃ Default value for linked_dirs is []
+set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
+
+＃ Default value for default_env is {}
+＃ set :default_env, { path: "/opt/ruby/bin:$PATH" }
+
+＃ Default value for keep_releases is 5
+ set :keep_releases, 5
+
+set :keep_releases, 5
+
+namespace :deploy do
+
+  desc 'Restart application'
+  task :restart do
+    on roles(:app), in: :sequence, wait: 5 do
+    end
+  end
+
+  after :restart, :'puma:restart'
+  after :publishing, :restart
+
+  after :restart, :clear_cache do
+    on roles(:web), in: :groups, limit: 3, wait: 10 do
+    end
+  end
+
+end
+
+</code></pre>
+
+
+<p>More details can be found at the following link in our team manual.  <a href="https://zhaozijie.gitbooks.io/intro_rails/content/cong_yi_tai_kong_de_fu_wu_qi_shang_bu_shu_rails_ying_yong.html">https://zhaozijie.gitbooks.io/intro_rails/content/cong_yi_tai_kong_de_fu_wu_qi_shang_bu_shu_rails_ying_yong.html</a></p>
+
+<h5>letter_opener</h5>
+
+<p>When we develop mail features, we always want to preview our mail template, and we don&rsquo;t want to send mail for testing. We use letter_opener gem.</p>
+
+<p>1 Install</p>
+
+<pre><code>gem 'letter_opener' 
+</code></pre>
+
+
+<p>2  Configuration</p>
+
+<p>To set the codes in config/environments/development.rb</p>
+
+<pre><code>config.action_mailer.delivery_method = :letter_opener</code></pre>
+
+
+<p>Ok, That&rsquo;s it. The email will pop up in your brower, they are stored in tm/letter_openrer.</p>
+
+<h5>rack_mini_profiler</h5>
+
+<p>We use rake_mini_profiler gem to monitor the speed of the rails app.</p>
+
+<p>First, add codes below to gemfile and install</p>
+
+<pre><code>gem 'rack-mini-profiler' </code></pre>
+
+
+<p>Second, there is no second step if you want :). Restart your server, and visit your app in the brower. You will find the speed data on the top-left of brower. Like this:</p>
+
+<p>{<3>}<img src="/content/images/2015/09/D5059D17-B88F-40B1-9474-B774FC6F3D5E.png" alt="" /></p>
+
+<h5>rack-attack</h5>
+
+<p>We advise you to use the rack-attack gem to protects the rails apps. It allows you to create whitelisting, blacklisting, throttling, and tracking. Let&rsquo;s add the gem to your web apps.</p>
+
+<p>Install, add it to your Gemfile</p>
+
+<pre><code>gem 'rack-attack'</code></pre>
+
+
+<p>Set configuration in the application.rb</p>
+
+<pre><code># In config/application.rb
+config.middleware.use Rack::Attack </code></pre>
+
+
+<p></p>
+
+<p>Add custom codes to rack-attack.rb</p>
+
+<pre><code># In config/initializers/rack-attack.rb
+class Rack::Attack
+  # custom codes
+  
+  #for example, white list
+  Rack::Attack.whitelist('allow from localhost') do |req|
+    '127.0.0.1' == req.ip
+  end
+  
+  #for example, black list
+  Rack::Attack.blacklist('block 1.2.3.4.') do |req|
+    '1.2.3.4' == req.ip
+  end
+end</code></pre>
+
+
+<p>
+About rack-attack, I will give more details in next post.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Your Name</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-10-01T11:16:53+08:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/gem/'>gem</a>, <a class='category' href='/blog/categories/ruby-on-rails/'>ruby on rails</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ryan715.github.io/blog/2015/10/01/some-common-gems-for-we-build-ruby-on-rails-applications/" data-via="" data-counturl="http://ryan715.github.io/blog/2015/10/01/some-common-gems-for-we-build-ruby-on-rails-applications/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/10/01/integration-elasticsearch-to-rails/" title="Previous Post: Integration ElasticSearch to Rails">&laquo; Integration ElasticSearch to Rails</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/10/01/some-common-gems-for-we-build-ruby-on-rails-applications/">Some common gems for we build Ruby on Rails applications</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/10/01/integration-elasticsearch-to-rails/">Integration ElasticSearch to Rails</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/09/30/i-am-back-again/">I am back again</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/09/01/dev-plan/">Dev Plan</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/07/29/mess/">mess, running</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

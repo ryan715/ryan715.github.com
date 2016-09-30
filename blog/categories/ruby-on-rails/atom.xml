@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: ruby on rails | My Octopress Blog]]></title>
+  <link href="http://ryan715.github.io/blog/categories/ruby-on-rails/atom.xml" rel="self"/>
+  <link href="http://ryan715.github.io/"/>
+  <updated>2015-10-01T11:22:25+08:00</updated>
+  <id>http://ryan715.github.io/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Some common gems for we build Ruby on Rails applications]]></title>
+    <link href="http://ryan715.github.io/blog/2015/10/01/some-common-gems-for-we-build-ruby-on-rails-applications/"/>
+    <updated>2015-10-01T11:16:53+08:00</updated>
+    <id>http://ryan715.github.io/blog/2015/10/01/some-common-gems-for-we-build-ruby-on-rails-applications</id>
+    <content type="html"><![CDATA[<p>In this post, I will share some common gems that we use for building RoR applications.</p>
+
+<h6>bcrypt</h6>
+
+<p>Sometimes, we build user authentication features without the use of a devise gem. To solve the storing of passwords we use bcrypt. It allows you to easily store a secure hash of users passwords.</p>
+
+<p>Follow some steps below
+1. Install
+In your Gemfile, add codes below</p>
+
+<pre><code>gem 'bcrypt'
+</code></pre>
+
+
+<p>then run &ldquo;bundle install&rdquo; commands.
+2. Migrate your user table</p>
+
+<pre><code>add_column :table_name, :password_digest, :string
+</code></pre>
+
+
+<p>3.Update user model file.
+In your users model file, add the code below</p>
+
+<pre><code> has_secure_password
+</code></pre>
+
+
+<p>That&rsquo;s it.</p>
+
+<h6>simple_form</h6>
+
+<p>We always encounter CURD tasks when we build an admin    dashboard. A simple form gem is really the best option, it can help us to solve a ton of html tags problems.</p>
+
+<p>Basic Usage</p>
+
+<pre><code>＃ definition form url
+<%= simple_form_for @post do |f| %>
+＃ model collection, dropdown list html tag
+<%= f.input :user_id, collection @users %>
+＃ textfield html tag
+<%= f.input :content %>
+＃ submit
+<%= f.submit '提交' %>
+<% end %>
+</code></pre>
+
+
+<h6>annotate</h6>
+
+<p>You don&rsquo;t always know the schemas when you look at the models. Try annotate gem, it helps you to add comment summaraizing to the current schema.
+When you have installed and run &lsquo;bundle exec annotate&rsquo;, you will find it is very clear to understand models. Like this:</p>
+
+<pre><code># == Schema Information
+# Table name: users
+#  id              :integer          not null, primary key
+#  nickname        :string(255)
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  password_digest :string(255)
+#  remember_token  :string(255)
+#
+
+class User < ActiveRecord::Base
+  before_save { self.email = email.downcase }
+  before_create :create_remember_token
+</code></pre>
+
+
+<h6>will_paginate</h6>
+
+<p>In Ruby on Rails world, To develop paginate feature is really easy, will_paginate gem helps you to handle a lot of things about pagination.</p>
+
+<p>How to use? There is a post class need to paginate.</p>
+
+<pre><code>
+＃ In model
+@posts = Post.paginate(page: params[:paeg]
+＃ or 
+@posts = Post.paginate(page: params[:page], per_page: 10)
+＃ In page
+<%= will_paginate @posts %></code></pre>
+
+
+<h6>puma</h6>
+
+<p>Unlike other Ruby Webservers, Puma was built for speed and parallelism. Puma is a small library that provides a very fast and concurrent HTTP1.1 server for Ruby web applications. It is designed for running Rack apps only.</p>
+
+<p>You can install puma gem very easily, add codes below in your gemfile.</p>
+
+<pre><code>gem 'puma'
+</code></pre>
+
+
+<p>Then start your server</p>
+
+<pre><code>rails s Puma
+</code></pre>
+
+
+<h6>better_errors</h6>
+
+<p>Provides a better page for Rails and other Rack apps. Includes sources code inspection, a live REPL and local/instance variable inspection for all stack frames.</p>
+
+<p>After we finish installing beter_errors gem, when the error pages appear, like this:
+{<1>}<img src="http://asciicasts.com/system/photos/1446/original/E402I02.png" alt="" />
+Woo, It looks very nice, it helps us to find the problems exactly.</p>
+
+<h6>rails_panel</h6>
+
+<p>This is an extension for Chrome which adds a development log withn the brower. As we visit various pages in our application we should see an entry for each one in the panel. This works for AJAX requests too.
+{<2>}<img src="http://asciicasts.com/system/photos/1450/original/E402I06.png" alt="" /></p>
+
+<h5>capistrano</h5>
+
+<p>Capistrano gem is a remote server automation tool. It help us to deploy a rails server more convenient.
+First, you need to install the gem in your gemfile, and bundle it.</p>
+
+<pre><cod>group :development do
+  gem 'capistrano', '~> 3.3.0'
+  gem 'capistrano-rails'
+  gem 'capistrano-bundler'
+end
+</code></pre>
+
+
+<p>The second step is to initiate it.</p>
+
+<pre><code>cap install</code></pre>
+
+
+<p>The third step, the complicated step, to configure the cap file.</p>
+
+<pre><code># config valid only for current version of Capistrano
+lock '3.3.5'
+
+set :application, '[projectname]'
+set :repo_url, 'git@github.com:[username]/[projectname].git'
+
+＃ Default branch is :master
+＃ ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
+
+＃ Default deploy_to directory is /var/www/my_app_name
+set :deploy_to, '/var/www/[projectname]'
+
+＃ Default value for :scm is :git
+set :scm, :git
+set :rbenv_type, :system
+set :rbenv_path, '/home/deploy/.rbenv'
+set :rbenv_ruby, '2.2.0'
+set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
+set :rbenv_map_bins, %w{rake gem bundle ruby rails}
+
+set :default_environment, {
+    'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
+}
+
+
+＃ puma
+set :puma_rackup, -> { File.join(current_path, 'config.ru') }
+set :puma_state, "#{shared_path}/tmp/pids/puma.state"
+set :puma_pid, "#{shared_path}/tmp/pids/puma.pid"
+set :puma_bind, "unix://#{shared_path}/tmp/sockets/puma.sock"    #accept array for multi-bind
+set :puma_conf, "#{shared_path}/puma.rb"
+set :puma_env, fetch(:rack_env, fetch(:rails_env, 'staging'))
+set :puma_access_log, "#{shared_path}/log/puma_error.log"
+set :puma_error_log, "#{shared_path}/log/puma_access.log"
+set :puma_role, :app
+set :puma_threads, [0, 16]
+set :puma_workers, 0
+set :puma_worker_timeout, nil
+set :puma_init_active_record, false
+set :puma_preload_app, true
+
+
+＃ Default value for :format is :pretty
+＃ set :format, :pretty
+
+＃ Default value for :log_level is :debug
+＃ set :log_level, :debug
+
+＃ Default value for :pty is false
+＃ set :pty, true
+
+＃ Default value for :linked_files is []
+set :linked_files, %w{config/database.yml config/secrets.yml config/env.yml}
+
+＃ Default value for linked_dirs is []
+set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
+
+＃ Default value for default_env is {}
+＃ set :default_env, { path: "/opt/ruby/bin:$PATH" }
+
+＃ Default value for keep_releases is 5
+ set :keep_releases, 5
+
+set :keep_releases, 5
+
+namespace :deploy do
+
+  desc 'Restart application'
+  task :restart do
+    on roles(:app), in: :sequence, wait: 5 do
+    end
+  end
+
+  after :restart, :'puma:restart'
+  after :publishing, :restart
+
+  after :restart, :clear_cache do
+    on roles(:web), in: :groups, limit: 3, wait: 10 do
+    end
+  end
+
+end
+
+</code></pre>
+
+
+<p>More details can be found at the following link in our team manual.  <a href="https://zhaozijie.gitbooks.io/intro_rails/content/cong_yi_tai_kong_de_fu_wu_qi_shang_bu_shu_rails_ying_yong.html">https://zhaozijie.gitbooks.io/intro_rails/content/cong_yi_tai_kong_de_fu_wu_qi_shang_bu_shu_rails_ying_yong.html</a></p>
+
+<h5>letter_opener</h5>
+
+<p>When we develop mail features, we always want to preview our mail template, and we don&rsquo;t want to send mail for testing. We use letter_opener gem.</p>
+
+<p>1 Install</p>
+
+<pre><code>gem 'letter_opener' 
+</code></pre>
+
+
+<p>2  Configuration</p>
+
+<p>To set the codes in config/environments/development.rb</p>
+
+<pre><code>config.action_mailer.delivery_method = :letter_opener</code></pre>
+
+
+<p>Ok, That&rsquo;s it. The email will pop up in your brower, they are stored in tm/letter_openrer.</p>
+
+<h5>rack_mini_profiler</h5>
+
+<p>We use rake_mini_profiler gem to monitor the speed of the rails app.</p>
+
+<p>First, add codes below to gemfile and install</p>
+
+<pre><code>gem 'rack-mini-profiler' </code></pre>
+
+
+<p>Second, there is no second step if you want :). Restart your server, and visit your app in the brower. You will find the speed data on the top-left of brower. Like this:</p>
+
+<p>{<3>}<img src="/content/images/2015/09/D5059D17-B88F-40B1-9474-B774FC6F3D5E.png" alt="" /></p>
+
+<h5>rack-attack</h5>
+
+<p>We advise you to use the rack-attack gem to protects the rails apps. It allows you to create whitelisting, blacklisting, throttling, and tracking. Let&rsquo;s add the gem to your web apps.</p>
+
+<p>Install, add it to your Gemfile</p>
+
+<pre><code>gem 'rack-attack'</code></pre>
+
+
+<p>Set configuration in the application.rb</p>
+
+<pre><code># In config/application.rb
+config.middleware.use Rack::Attack </code></pre>
+
+
+<p></p>
+
+<p>Add custom codes to rack-attack.rb</p>
+
+<pre><code># In config/initializers/rack-attack.rb
+class Rack::Attack
+  # custom codes
+  
+  #for example, white list
+  Rack::Attack.whitelist('allow from localhost') do |req|
+    '127.0.0.1' == req.ip
+  end
+  
+  #for example, black list
+  Rack::Attack.blacklist('block 1.2.3.4.') do |req|
+    '1.2.3.4' == req.ip
+  end
+end</code></pre>
+
+
+<p>
+About rack-attack, I will give more details in next post.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Integration ElasticSearch to Rails]]></title>
+    <link href="http://ryan715.github.io/blog/2015/10/01/integration-elasticsearch-to-rails/"/>
+    <updated>2015-10-01T11:01:21+08:00</updated>
+    <id>http://ryan715.github.io/blog/2015/10/01/integration-elasticsearch-to-rails</id>
+    <content type="html"><![CDATA[<h3>导言</h3>
+
+<p>  这两天项目要求，把现有的搜索改成ElasticSearch(后面简称es)。之前接触 过一些es，后来就开始捣鼓。记得railcasts上面有讲过相关视频，重温了下就  开始弄，没弄多久发现上面用的<a href="https://github.com/karmi/retire">tire</a>已经retire了。为了让更多的朋友们不走冤枉路，所以才有了此文。</p>
+
+<h3>简介</h3>
+
+<p>  大致说下什么是es，详细的<a href="https://en.wikipedia.org/wiki/Elasticsearch">Wikipedia</a>有介绍。es其实就是一个搜索的引擎，从开源项目lucene出来，lucene是java编写的，比较复杂，要使用它必须了解核心一大堆东西。es就是包装了一层，然后提供RESTFUL API调用，从而让全文搜索变得更加简单。</p>
+
+<h3>过程</h3>
+
+<h5>安装</h5>
+
+<p>  在安装es之前，先安装jdk。
+  Mac环境, 运行 <code>brew install elasticsearch</code>, 然后运行<code>elasticsearch --config=/usr/local/opt/elasticsearch/config/elasticsearch.yml</code>启动，访问<a href="http://localhost:9200"> http://localhost:9200</a>，访问成功就表示安装完成了。</p>
+
+<p>  其他环境，访问<a href="http://elasticsearch.org/download">官网</a>相关安装包下载。</p>
+
+<h5>使用</h5>
+
+<p>  在Gemfile中加入</p>
+
+<pre><code class="ruby "> gem 'elasticsearch-model' 
+ gem 'elasticsearch-rails' 
+</code></pre>
+
+<p> 注意：es-model自带了分页插件，如果你在gemfile中有分页，如<code>will_paginate</code> 或者 <code>kaminari</code>，要把他们放到es-model和es-rails的前面。</p>
+
+<p> 在需要添加搜索的model添加以下代码：</p>
+
+<pre><code class="ruby"> class University &lt; ActiveRecord::Base
+   include Elasticsearch::Model
+   include Elasticsearch::Model::Callbacks
+ end
+</code></pre>
+
+<p> 完成引用后，我们可以编写search方法了：</p>
+
+<pre><code class="ruby"> def self.search(search)
+    response = __elasticsearch__.search(search)
+ end
+</code></pre>
+
+<p> 这是一个很简单的search，通过传入的参数直接进行检索。我们可以使用DSL来使我们的检索语句更加满足我们的业务需要，以下是我需要检索一个状态为1，并且从栏目名为name的一个检索:</p>
+
+<pre><code class="ruby">def self.search_filter(params)
+  response = __elasticsearch__.search(
+      "query": {
+        "filtered": {
+          "filter":   {
+            "bool": {
+              "must":     { "term":  { "status": 1 }},
+              "must": {
+                "query": { 
+                  "match": { "name": params }
+                }
+              }
+            }
+          }
+        }
+      }  
+    )
+end
+</code></pre>
+
+<p>关于es的DSL更多写法，大家可以访问<a href="https://www.elastic.co/guide/en/elasticsearch/guide/current/_most_important_queries_and_filters.html">这里</a>。里面详细的讲解了query,filter等一些常用查询，大家可以根据业务需要自行改装。</p>
+
+<p> 然后我们为model创建index, 主要给es使用：</p>
+
+<pre><code class="ruby"> mapping dynamic: false do
+   indexes :name
+   indexes :tag
+ end
+</code></pre>
+
+<p> 我们继续往下走，model是可以serialized成json的，我们使用<code>as_indexed_json</code>这个方法。我们可以这样写：</p>
+
+<pre><code class="ruby"> def as_indexed_json(options={})
+   self.as_json(
+     only: [:id, :name, :description, :status],   
+     include: { tags: { only: [:name]}}
+   )
+ end
+</code></pre>
+
+<p> <code>include</code>的部分是处理association的，<code>only</code>是model本身的字段属性。完成了以上调整，我们的model搜索基本完成了。如果你现在使用搜索，我估计还是搜索不出数据。我们要把数据导入给es，使用这个命令</p>
+
+<pre><code class="bash"> rake environment elasticsearch:import:model CLASS='your_model_name' FORCE=y
+</code></pre>
+
+<p>好啦。基本就完成。es默认自带中文分词，但是有些posts反馈说不大好用，可以使用<a href="https://github.com/medcl/elasticsearch-rtf">es-rtf</a>，集成了中文的分词插件，下载直接可以用。必须要安装jdk，里面有详尽的使用方法。</p>
+
+<h3>相关资料</h3>
+
+<p>gem的<a href="https://github.com/elastic/elasticsearch-rails/tree/master/elasticsearch-model">README</a>,有耐心慢慢看可以了解很多</p>
+
+<p>一些快速的tutorial</p>
+
+<p><a href="http://www.sitepoint.com/full-text-search-rails-elasticsearch/">http://www.sitepoint.com/full-text-search-rails-elasticsearch/</a>
+<a href="http://aaronvb.com/articles/intro-to-elasticsearch-ruby-on-rails-part-1.html">http://aaronvb.com/articles/intro-to-elasticsearch-ruby-on-rails-part-1.html</a>
+<a href="http://www.spacevatican.org/2012/6/3/fun-with-elasticsearch-s-children-and-nested-documents/">http://www.spacevatican.org/2012/6/3/fun-with-elasticsearch-s-children-and-nested-documents/</a></p>
+
+<p>可以了解，railcast的es介绍 <a href="http://railscasts.com/episodes/306-elasticsearch-part-1">http://railscasts.com/episodes/306-elasticsearch-part-1</a></p>
+]]></content>
+  </entry>
+  
+</feed>
