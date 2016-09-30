@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[My Octopress Blog]]></title>
-  <link href="http://ryan715.github.io/atom.xml" rel="self"/>
-  <link href="http://ryan715.github.io/"/>
-  <updated>2015-10-01T11:22:25+08:00</updated>
-  <id>http://ryan715.github.io/</id>
+  <link href="http://ryan715.github.com/atom.xml" rel="self"/>
+  <link href="http://ryan715.github.com/"/>
+  <updated>2016-09-30T16:45:41+08:00</updated>
+  <id>http://ryan715.github.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
     
@@ -14,10 +14,37 @@
 
   
   <entry>
+    <title type="html"><![CDATA[助销宝介绍]]></title>
+    <link href="http://ryan715.github.com/blog/2016/09/30/zhu-xiao-bao-jie-shao/"/>
+    <updated>2016-09-30T10:24:12+08:00</updated>
+    <id>http://ryan715.github.com/blog/2016/09/30/zhu-xiao-bao-jie-shao</id>
+    <content type="html"><![CDATA[<h3>应用介绍</h3>
+
+<ul>
+<li>随心所欲、自由搭配diy 设计平台</li>
+<li>轻松上传，搭配效果立马呈现</li>
+<li>各大主流风格应有尽有，多个空间自由搭配</li>
+<li>少点遗憾， 多一点出彩</li>
+</ul>
+
+
+<h3>联系方式</h3>
+
+<p>如果您对产品有任何建议或者问题，欢迎发送反馈</p>
+
+<ul>
+<li>1246215029@qq.com</li>
+<li>13637765022 林生</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Some common gems for we build Ruby on Rails applications]]></title>
-    <link href="http://ryan715.github.io/blog/2015/10/01/some-common-gems-for-we-build-ruby-on-rails-applications/"/>
+    <link href="http://ryan715.github.com/blog/2015/10/01/some-common-gems-for-we-build-ruby-on-rails-applications/"/>
     <updated>2015-10-01T11:16:53+08:00</updated>
-    <id>http://ryan715.github.io/blog/2015/10/01/some-common-gems-for-we-build-ruby-on-rails-applications</id>
+    <id>http://ryan715.github.com/blog/2015/10/01/some-common-gems-for-we-build-ruby-on-rails-applications</id>
     <content type="html"><![CDATA[<p>In this post, I will share some common gems that we use for building RoR applications.</p>
 
 <h6>bcrypt</h6>
@@ -269,7 +296,7 @@ end
 
 <p>Second, there is no second step if you want :). Restart your server, and visit your app in the brower. You will find the speed data on the top-left of brower. Like this:</p>
 
-<p>{<3>}<img src="http://ryan715.github.io/content/images/2015/09/D5059D17-B88F-40B1-9474-B774FC6F3D5E.png" alt="" /></p>
+<p>{<3>}<img src="http://ryan715.github.com/content/images/2015/09/D5059D17-B88F-40B1-9474-B774FC6F3D5E.png" alt="" /></p>
 
 <h5>rack-attack</h5>
 
@@ -313,9 +340,9 @@ About rack-attack, I will give more details in next post.</p>
   
   <entry>
     <title type="html"><![CDATA[Integration ElasticSearch to Rails]]></title>
-    <link href="http://ryan715.github.io/blog/2015/10/01/integration-elasticsearch-to-rails/"/>
+    <link href="http://ryan715.github.com/blog/2015/10/01/integration-elasticsearch-to-rails/"/>
     <updated>2015-10-01T11:01:21+08:00</updated>
-    <id>http://ryan715.github.io/blog/2015/10/01/integration-elasticsearch-to-rails</id>
+    <id>http://ryan715.github.com/blog/2015/10/01/integration-elasticsearch-to-rails</id>
     <content type="html"><![CDATA[<h3>导言</h3>
 
 <p>  这两天项目要求，把现有的搜索改成ElasticSearch(后面简称es)。之前接触 过一些es，后来就开始捣鼓。记得railcasts上面有讲过相关视频，重温了下就  开始弄，没弄多久发现上面用的<a href="https://github.com/karmi/retire">tire</a>已经retire了。为了让更多的朋友们不走冤枉路，所以才有了此文。</p>
@@ -468,18 +495,18 @@ About rack-attack, I will give more details in next post.</p>
   
   <entry>
     <title type="html"><![CDATA[I am back again]]></title>
-    <link href="http://ryan715.github.io/blog/2015/09/30/i-am-back-again/"/>
+    <link href="http://ryan715.github.com/blog/2015/09/30/i-am-back-again/"/>
     <updated>2015-09-30T17:36:05+08:00</updated>
-    <id>http://ryan715.github.io/blog/2015/09/30/i-am-back-again</id>
+    <id>http://ryan715.github.com/blog/2015/09/30/i-am-back-again</id>
     <content type="html"><![CDATA[<p>I'am back again with more passion and creative. I will record my life and code posts in here.</p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Dev Plan]]></title>
-    <link href="http://ryan715.github.io/blog/2015/09/01/dev-plan/"/>
+    <link href="http://ryan715.github.com/blog/2015/09/01/dev-plan/"/>
     <updated>2015-09-01T10:53:00+08:00</updated>
-    <id>http://ryan715.github.io/blog/2015/09/01/dev-plan</id>
+    <id>http://ryan715.github.com/blog/2015/09/01/dev-plan</id>
     <content type="html"><![CDATA[<h3>blablacar</h3>
 
 <ul>
@@ -514,9 +541,9 @@ About rack-attack, I will give more details in next post.</p>
   
   <entry>
     <title type="html"><![CDATA[mess, running]]></title>
-    <link href="http://ryan715.github.io/blog/2015/07/29/mess/"/>
+    <link href="http://ryan715.github.com/blog/2015/07/29/mess/"/>
     <updated>2015-07-29T22:31:00+08:00</updated>
-    <id>http://ryan715.github.io/blog/2015/07/29/mess</id>
+    <id>http://ryan715.github.com/blog/2015/07/29/mess</id>
     <content type="html"><![CDATA[<h3>About Mess</h3>
 
 <p>Today devotional is about Whose mess, it descrips some mess form our spiritually sense. It teaches us that do not judge people, cause we usually ignore our sin instead other&rsquo;s sin.</p>
@@ -540,24 +567,43 @@ About rack-attack, I will give more details in next post.</p>
   
   <entry>
     <title type="html"><![CDATA[subdomaininrails4]]></title>
-    <link href="http://ryan715.github.io/blog/2014/11/28/subdomaininrails4/"/>
+    <link href="http://ryan715.github.com/blog/2014/11/28/subdomaininrails4/"/>
     <updated>2014-11-28T17:27:00+08:00</updated>
-    <id>http://ryan715.github.io/blog/2014/11/28/subdomaininrails4</id>
+    <id>http://ryan715.github.com/blog/2014/11/28/subdomaininrails4</id>
     <content type="html"><![CDATA[<p>Today, i&rsquo;ll blog something about subdomain in rails4.</p>
 
 <h1>subdomain.rb</h1>
 
-<p>you should add sobdomain.rb</p>
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+you should add sobdomain.rb</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>class
 </span><span class='line'>  def 
 </span><span class='line'>      
 </span><span class='line'>  end
+</span><span class='line'>=======
+</span><span class='line'>you should add sobdomain.rb ```
+</span><span class='line'>class Subdomain
+</span><span class='line'>
+</span><span class='line'>  def 
+</span><span class='line'>      
+</span><span class='line'>  end
+</span><span class='line'>
+</span><span class='line'>&gt;&gt;&gt;&gt;&gt;&gt;&gt; 4d8aefe0d00b747da16710d2077593dfd55bdc68
 </span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
 
 
@@ -567,9 +613,9 @@ About rack-attack, I will give more details in next post.</p>
   
   <entry>
     <title type="html"><![CDATA[hello again]]></title>
-    <link href="http://ryan715.github.io/blog/2014/11/28/hello-again/"/>
+    <link href="http://ryan715.github.com/blog/2014/11/28/hello-again/"/>
     <updated>2014-11-28T17:16:00+08:00</updated>
-    <id>http://ryan715.github.io/blog/2014/11/28/hello-again</id>
+    <id>http://ryan715.github.com/blog/2014/11/28/hello-again</id>
     <content type="html"><![CDATA[<p>hello, again.
 From now no, i&rsquo;ll blog again.</p>
 ]]></content>
@@ -577,18 +623,36 @@ From now no, i&rsquo;ll blog again.</p>
   
   <entry>
     <title type="html"><![CDATA[some change subdomain in rails4]]></title>
-    <link href="http://ryan715.github.io/blog/2014/11/28/some-change-subdomain-in-rails4/"/>
+    <link href="http://ryan715.github.com/blog/2014/11/28/some-change-subdomain-in-rails4/"/>
     <updated>2014-11-28T16:53:00+08:00</updated>
-    <id>http://ryan715.github.io/blog/2014/11/28/some-change-subdomain-in-rails4</id>
+    <id>http://ryan715.github.com/blog/2014/11/28/some-change-subdomain-in-rails4</id>
     <content type="html"><![CDATA[<p>in rails4, when i add subdomain in libs, but it doesn&rsquo;t work. so i add subdomain in route.</p>
 ]]></content>
   </entry>
   
   <entry>
+    <title type="html"><![CDATA[some change subdomain in rails4]]></title>
+    <link href="http://ryan715.github.com/blog/2014/11/28/some-change-subdomain-in-rails4/"/>
+    <updated>2014-11-28T16:53:00+08:00</updated>
+    <id>http://ryan715.github.com/blog/2014/11/28/some-change-subdomain-in-rails4</id>
+    <content type="html"><![CDATA[<p>in rails4, when i add subdomain in libs, but it doesn&rsquo;t work. so i add subdomain in route.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[some change about route in rails4]]></title>
+    <link href="http://ryan715.github.com/blog/2014/11/28/some-change-about-route-in-rails4/"/>
+    <updated>2014-11-28T16:50:00+08:00</updated>
+    <id>http://ryan715.github.com/blog/2014/11/28/some-change-about-route-in-rails4</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[find by in rails4]]></title>
-    <link href="http://ryan715.github.io/blog/2014/11/28/find-by-in-rails4/"/>
+    <link href="http://ryan715.github.com/blog/2014/11/28/find-by-in-rails4/"/>
     <updated>2014-11-28T16:30:00+08:00</updated>
-    <id>http://ryan715.github.io/blog/2014/11/28/find-by-in-rails4</id>
+    <id>http://ryan715.github.com/blog/2014/11/28/find-by-in-rails4</id>
     <content type="html"><![CDATA[<p>In rails4, you should need to code like this when you need to find by *</p>
 
 <p>Blog.find_by subdomain: request.subdomain</p>

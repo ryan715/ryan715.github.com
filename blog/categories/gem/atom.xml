@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: gem | My Octopress Blog]]></title>
-  <link href="http://ryan715.github.io/blog/categories/gem/atom.xml" rel="self"/>
-  <link href="http://ryan715.github.io/"/>
-  <updated>2015-10-01T11:22:25+08:00</updated>
-  <id>http://ryan715.github.io/</id>
+  <link href="http://ryan715.github.com/blog/categories/gem/atom.xml" rel="self"/>
+  <link href="http://ryan715.github.com/"/>
+  <updated>2016-09-30T16:45:41+08:00</updated>
+  <id>http://ryan715.github.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Some common gems for we build Ruby on Rails applications]]></title>
-    <link href="http://ryan715.github.io/blog/2015/10/01/some-common-gems-for-we-build-ruby-on-rails-applications/"/>
+    <link href="http://ryan715.github.com/blog/2015/10/01/some-common-gems-for-we-build-ruby-on-rails-applications/"/>
     <updated>2015-10-01T11:16:53+08:00</updated>
-    <id>http://ryan715.github.io/blog/2015/10/01/some-common-gems-for-we-build-ruby-on-rails-applications</id>
+    <id>http://ryan715.github.com/blog/2015/10/01/some-common-gems-for-we-build-ruby-on-rails-applications</id>
     <content type="html"><![CDATA[<p>In this post, I will share some common gems that we use for building RoR applications.</p>
 
 <h6>bcrypt</h6>

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: rails | My Octopress Blog]]></title>
-  <link href="http://ryan715.github.io/blog/categories/rails/atom.xml" rel="self"/>
-  <link href="http://ryan715.github.io/"/>
-  <updated>2015-10-01T11:22:25+08:00</updated>
-  <id>http://ryan715.github.io/</id>
+  <link href="http://ryan715.github.com/blog/categories/rails/atom.xml" rel="self"/>
+  <link href="http://ryan715.github.com/"/>
+  <updated>2016-09-30T16:45:41+08:00</updated>
+  <id>http://ryan715.github.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
     
@@ -15,18 +15,27 @@
   
   <entry>
     <title type="html"><![CDATA[some change subdomain in rails4]]></title>
-    <link href="http://ryan715.github.io/blog/2014/11/28/some-change-subdomain-in-rails4/"/>
+    <link href="http://ryan715.github.com/blog/2014/11/28/some-change-subdomain-in-rails4/"/>
     <updated>2014-11-28T16:53:00+08:00</updated>
-    <id>http://ryan715.github.io/blog/2014/11/28/some-change-subdomain-in-rails4</id>
+    <id>http://ryan715.github.com/blog/2014/11/28/some-change-subdomain-in-rails4</id>
+    <content type="html"><![CDATA[<p>in rails4, when i add subdomain in libs, but it doesn&rsquo;t work. so i add subdomain in route.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[some change subdomain in rails4]]></title>
+    <link href="http://ryan715.github.com/blog/2014/11/28/some-change-subdomain-in-rails4/"/>
+    <updated>2014-11-28T16:53:00+08:00</updated>
+    <id>http://ryan715.github.com/blog/2014/11/28/some-change-subdomain-in-rails4</id>
     <content type="html"><![CDATA[<p>in rails4, when i add subdomain in libs, but it doesn&rsquo;t work. so i add subdomain in route.</p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[find by in rails4]]></title>
-    <link href="http://ryan715.github.io/blog/2014/11/28/find-by-in-rails4/"/>
+    <link href="http://ryan715.github.com/blog/2014/11/28/find-by-in-rails4/"/>
     <updated>2014-11-28T16:30:00+08:00</updated>
-    <id>http://ryan715.github.io/blog/2014/11/28/find-by-in-rails4</id>
+    <id>http://ryan715.github.com/blog/2014/11/28/find-by-in-rails4</id>
     <content type="html"><![CDATA[<p>In rails4, you should need to code like this when you need to find by *</p>
 
 <p>Blog.find_by subdomain: request.subdomain</p>

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: ruby on rails | My Octopress Blog]]></title>
-  <link href="http://ryan715.github.io/blog/categories/ruby-on-rails/atom.xml" rel="self"/>
-  <link href="http://ryan715.github.io/"/>
-  <updated>2015-10-01T11:22:25+08:00</updated>
-  <id>http://ryan715.github.io/</id>
+  <link href="http://ryan715.github.com/blog/categories/ruby-on-rails/atom.xml" rel="self"/>
+  <link href="http://ryan715.github.com/"/>
+  <updated>2016-09-30T16:45:41+08:00</updated>
+  <id>http://ryan715.github.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Some common gems for we build Ruby on Rails applications]]></title>
-    <link href="http://ryan715.github.io/blog/2015/10/01/some-common-gems-for-we-build-ruby-on-rails-applications/"/>
+    <link href="http://ryan715.github.com/blog/2015/10/01/some-common-gems-for-we-build-ruby-on-rails-applications/"/>
     <updated>2015-10-01T11:16:53+08:00</updated>
-    <id>http://ryan715.github.io/blog/2015/10/01/some-common-gems-for-we-build-ruby-on-rails-applications</id>
+    <id>http://ryan715.github.com/blog/2015/10/01/some-common-gems-for-we-build-ruby-on-rails-applications</id>
     <content type="html"><![CDATA[<p>In this post, I will share some common gems that we use for building RoR applications.</p>
 
 <h6>bcrypt</h6>
@@ -313,9 +313,9 @@ About rack-attack, I will give more details in next post.</p>
   
   <entry>
     <title type="html"><![CDATA[Integration ElasticSearch to Rails]]></title>
-    <link href="http://ryan715.github.io/blog/2015/10/01/integration-elasticsearch-to-rails/"/>
+    <link href="http://ryan715.github.com/blog/2015/10/01/integration-elasticsearch-to-rails/"/>
     <updated>2015-10-01T11:01:21+08:00</updated>
-    <id>http://ryan715.github.io/blog/2015/10/01/integration-elasticsearch-to-rails</id>
+    <id>http://ryan715.github.com/blog/2015/10/01/integration-elasticsearch-to-rails</id>
     <content type="html"><![CDATA[<h3>导言</h3>
 
 <p>  这两天项目要求，把现有的搜索改成ElasticSearch(后面简称es)。之前接触 过一些es，后来就开始捣鼓。记得railcasts上面有讲过相关视频，重温了下就  开始弄，没弄多久发现上面用的<a href="https://github.com/karmi/retire">tire</a>已经retire了。为了让更多的朋友们不走冤枉路，所以才有了此文。</p>
