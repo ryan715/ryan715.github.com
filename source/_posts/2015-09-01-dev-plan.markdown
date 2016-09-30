@@ -1,0 +1,30 @@
+---
+layout: post
+title: "Dev Plan"
+date: 2015-09-01 10:53
+comments: true
+categories: blablacar bims Thinking
+---
+### blablacar
+
+* Add blog features? is it nessessary?
+
+* public access
+
+### bims
+
+<ol>
+	<li>Add account UI</li>
+	<li>Account CRUD</li>
+	<li>Add apple developer ios certifile </li>
+</ol>
+
+### my store
+
+Helping Clare building a cake online store, to learn how to extend the spree framework.Today tasks are below
+<ol>
+<li>change logo</li>
+<li>change store name</li>
+<li>search a bakery bootstrap template to custome the page</li>
+</ol>
+
