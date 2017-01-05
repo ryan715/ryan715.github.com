@@ -4,7 +4,7 @@
   <title><![CDATA[Caleb Tech]]></title>
   <link href="http://ryan715.github.com/atom.xml" rel="self"/>
   <link href="http://ryan715.github.com/"/>
-  <updated>2016-09-30T16:55:05+08:00</updated>
+  <updated>2017-01-05T22:46:04+08:00</updated>
   <id>http://ryan715.github.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -12,6 +12,42 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Clean Macbook]]></title>
+    <link href="http://ryan715.github.com/blog/2017/01/04/clean-macbook/"/>
+    <updated>2017-01-04T11:59:44+08:00</updated>
+    <id>http://ryan715.github.com/blog/2017/01/04/clean-macbook</id>
+    <content type="html"><![CDATA[<p>最近电脑空间告急，电脑的硬盘比较小，没办法，清理下呗～</p>
+
+<p>之前都是使用clean mac,但这货用多后发现没啥用。</p>
+
+<p>现在总结下：</p>
+
+<h4>工具OmniDiskSweeper</h4>
+
+<p>这货可以查看你的硬盘里面每个文件夹的大小，然后按大到小给你排列，你就可以根据自己的需求进行文件清理；</p>
+
+<h4>Xcode</h4>
+
+<p>这个文件夹真实巨硕，要想办法动下，上网查了下，发现真有可以清理的地方：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'> &gt; ~/Library/Developer/Xcode/iOS DeviceSupport
+</span><span class='line'> &gt; ~/Library/Developer/Xcode/Archives
+</span><span class='line'> &gt; ~/Library/Developer/Xcode/DerivedData</span></code></pre></td></tr></table></div></figure>
+
+
+<p>这三个地方可以搞搞，wow，多了20G.</p>
+
+<h4>参考</h4>
+
+<p><a href="http://www.jianshu.com/p/03fed9a5fc63">http://www.jianshu.com/p/03fed9a5fc63</a>
+<a href="http://www.jianshu.com/p/f27f235ed125">http://www.jianshu.com/p/f27f235ed125</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[助销宝介绍]]></title>
