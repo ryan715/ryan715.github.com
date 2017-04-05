@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://ryan715.github.com/blog/2017/04/05/capistrano-puma-deploy/</loc>
+<lastmod>2017-04-05T21:15:05+08:00</lastmod>
+</url>
+<url>
 <loc>http://ryan715.github.com/blog/2017/01/04/clean-macbook/</loc>
 <lastmod>2017-01-04T11:59:44+08:00</lastmod>
 </url>
@@ -102,6 +106,9 @@
 </url>
 <url>
 <loc>http://ryan715.github.com/blog/categories/xcode/</loc>
+</url>
+<url>
+<loc>http://ryan715.github.com/blog/categories/capistrano/</loc>
 </url>
 <url>
 <loc>http://ryan715.github.com/posts/2/</loc>

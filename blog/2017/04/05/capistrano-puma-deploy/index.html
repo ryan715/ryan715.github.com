@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>mess, running - Caleb Tech</title>
+  <title>capistrano puma deploy, rails console - Caleb Tech</title>
   <meta name="author" content="Your Name">
 
   
-  <meta name="description" content="About Mess Today devotional is about Whose mess, it descrips some mess form our spiritually sense. It teaches us that do not judge people, cause we &hellip;">
+  <meta name="description" content="问题一 最近，有个项目需要用到自动部署，就把capistrano祭出来。噼里啪啦把相关的gem安装上，配置文件拉起来，一切都是按步就班，就不一一贴出来。最后运行时候提示 Task :"puma:restart" not found. 查看了logs也没有发现有什么猫腻，到底问题出在哪里？ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ryan715.github.com/blog/2015/07/29/mess">
+  <link rel="canonical" href="http://ryan715.github.com/blog/2017/04/05/capistrano-puma-deploy">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Caleb Tech" type="application/atom+xml">
@@ -66,7 +66,7 @@
   
   <header>
     
-      <h1 class="entry-title">Mess, Running</h1>
+      <h1 class="entry-title">Capistrano Puma Deploy, Rails Console</h1>
     
     
       <p class="meta">
@@ -82,31 +82,48 @@
   
 
 
-<time datetime="2015-07-29T22:31:00+08:00" pubdate data-updated="true"></time>
+<time datetime="2017-04-05T21:15:05+08:00" pubdate data-updated="true"></time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><h3>About Mess</h3>
+<div class="entry-content"><h3>问题一</h3>
 
-<p>Today devotional is about Whose mess, it descrips some mess form our spiritually sense. It teaches us that do not judge people, cause we usually ignore our sin instead other&rsquo;s sin.</p>
+<p>最近，有个项目需要用到自动部署，就把capistrano祭出来。噼里啪啦把相关的gem安装上，配置文件拉起来，一切都是按步就班，就不一一贴出来。最后运行时候提示</p>
 
-<h3>Running</h3>
+<p><code>Task :"puma:restart" not found.</code></p>
 
-<p>I run today, but I don&rsquo;t want to run before. I run so fast today, I think the reason is that i didnot run so long time. Feeling so good after running.</p>
+<p>查看了logs也没有发现有什么猫腻，到底问题出在哪里？怀疑是puma的gem上面。rails5默认自带puma gem，是不是和capistrano冲突了？</p>
 
-<h3>Exploitting market</h3>
+<h3>解决</h3>
 
-<p>How to exploit market? The biggest problem after your company starts business. I wrote down some key points after conclued below</p>
+<p>这个提示不好搜索，也没有任何的直接的关联答案。换个思路，找几篇最近的capistrano部署的tutorials，提取里面的deploy配置文件进行对比，写法基本一致。后来排查到Capfile:</p>
 
-<ul>
-<li>The product is the important thing, you must understand the selling points about products clearly.</li>
-<li>Introduction your businesses to freinds or clients who worked before, telling them what they got it from products, the product how to solve their problems.</li>
-<li>You need a website to present the product demo.</li>
-</ul>
+<p><code>install_plugin Capistrano::Puma</code></p>
 
+<p>缺少了这个，加上后就好了。</p>
+
+<h3>总结</h3>
+
+<p>开发过程中，或多或少会用到以前的一些gem，gem升级以后使用的用法会有所改变，把相关的思路再重新捋一遍，如果没有太大问题估计就是一些配置有所改变或者遗漏，一一对应即可解决问题。</p>
+
+<h3>问题二</h3>
+
+<p>接前面，以前用capistrano部署完了就ok，也没有想到要在项目下面运行</p>
+
+<p><code>rails c</code></p>
+
+<p>Rails 5 环境下是运行不起来的，那么如何才能跑起来呢？</p>
+
+<h3>解决</h3>
+
+<p>在 deploy 配置文件里面，把 bin 从 set :linked_dirs 移除，再添加</p>
+
+<p><code>set :bundle_binstubs, nil</code></p>
+
+<p>就可以解决。</p>
 </div>
 
 
@@ -129,12 +146,12 @@
   
 
 
-<time datetime="2015-07-29T22:31:00+08:00" pubdate data-updated="true"></time>
+<time datetime="2017-04-05T21:15:05+08:00" pubdate data-updated="true"></time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/business/'>business</a>, <a class='category' href='/blog/categories/odb/'>odb</a>, <a class='category' href='/blog/categories/running/'>running</a>
+    <a class='category' href='/blog/categories/capistrano/'>capistrano</a>, <a class='category' href='/blog/categories/rails/'>rails</a>
   
 </span>
 
@@ -143,7 +160,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ryan715.github.com/blog/2015/07/29/mess/" data-via="" data-counturl="http://ryan715.github.com/blog/2015/07/29/mess/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ryan715.github.com/blog/2017/04/05/capistrano-puma-deploy/" data-via="" data-counturl="http://ryan715.github.com/blog/2017/04/05/capistrano-puma-deploy/" >Tweet</a>
   
   
   
@@ -152,10 +169,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/11/28/subdomaininrails4/" title="Previous Post: subdomaininrails4">&laquo; subdomaininrails4</a>
+        <a class="basic-alignment left" href="/blog/2017/01/04/clean-macbook/" title="Previous Post: Clean Macbook">&laquo; Clean Macbook</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2015/09/01/dev-plan/" title="Next Post: Dev Plan">Dev Plan &raquo;</a>
       
     </p>
   </footer>
