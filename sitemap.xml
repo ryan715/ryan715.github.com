@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://ryan715.github.com/blog/2019/02/25/how-to-build-a-erc20-token-by-openzeppelin(shi-yong-openzeppelinfa-bu-erc20de-jia-mi-bi/</loc>
+<lastmod>2019-02-25T21:46:13+08:00</lastmod>
+</url>
+<url>
 <loc>http://ryan715.github.com/blog/2017/04/05/capistrano-puma-deploy/</loc>
 <lastmod>2017-04-05T21:15:05+08:00</lastmod>
 </url>
@@ -57,10 +61,10 @@
 <lastmod>2014-11-28T16:30:00+08:00</lastmod>
 </url>
 <url>
-<loc>http://ryan715.github.com/blog/archives/</loc>
+<loc>http://ryan715.github.com/</loc>
 </url>
 <url>
-<loc>http://ryan715.github.com/</loc>
+<loc>http://ryan715.github.com/blog/archives/</loc>
 </url>
 <url>
 <loc>http://ryan715.github.com/blog/categories/ruby/</loc>
@@ -111,6 +115,15 @@
 <loc>http://ryan715.github.com/blog/categories/capistrano/</loc>
 </url>
 <url>
-<loc>http://ryan715.github.com/posts/2/</loc>
+<loc>http://ryan715.github.com/blog/categories/qu-kuai-lian/</loc>
+</url>
+<url>
+<loc>http://ryan715.github.com/blog/categories/ether/</loc>
+</url>
+<url>
+<loc>http://ryan715.github.com/blog/categories/erc20/</loc>
+</url>
+<url>
+<loc>http://ryan715.github.com/blog/categories/openzeppelin/</loc>
 </url>
 </urlset>

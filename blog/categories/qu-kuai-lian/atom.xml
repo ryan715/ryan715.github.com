@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: 区块链 | Ryan's Blog]]></title>
+  <link href="http://ryan715.github.com/blog/categories/qu-kuai-lian/atom.xml" rel="self"/>
+  <link href="http://ryan715.github.com/"/>
+  <updated>2019-02-25T22:19:08+08:00</updated>
+  <id>http://ryan715.github.com/</id>
+  <author>
+    <name><![CDATA[Ryan]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[How to build a ERC20 token by openzeppelin（使用openzeppelin发布erc20的加密币)]]></title>
+    <link href="http://ryan715.github.com/blog/2019/02/25/how-to-build-a-erc20-token-by-openzeppelin(shi-yong-openzeppelinfa-bu-erc20de-jia-mi-bi/"/>
+    <updated>2019-02-25T21:46:13+08:00</updated>
+    <id>http://ryan715.github.com/blog/2019/02/25/how-to-build-a-erc20-token-by-openzeppelin(shi-yong-openzeppelinfa-bu-erc20de-jia-mi-bi</id>
+    <content type="html"><![CDATA[<p>这两天重温了下ERC20，以前发布加密货币时候需要按照ERC20的要求编写相关方法以及属性，现在不需要那么复杂了。可以使用openzeppelin-solidity这个框架进行开发，十分的便捷。
+入门建议看下：</p>
+
+<pre><code class="js">pragma solidity ^0.5.2;
+
+import "../crowdsale/validation/CappedCrowdsale.sol";
+import "../crowdsale/distribution/RefundableCrowdsale.sol";
+import "../crowdsale/emission/MintedCrowdsale.sol";
+import "../token/ERC20/ERC20Mintable.sol";
+import "../token/ERC20/ERC20Detailed.sol";
+
+/**
+ * @title SampleCrowdsaleToken
+ * @dev Very simple ERC20 Token that can be minted.
+ * It is meant to be used in a crowdsale contract.
+ */
+contract SampleCrowdsaleToken is ERC20Mintable, ERC20Detailed {
+    constructor () public ERC20Detailed("Sample Crowdsale Token", "SCT", 18) {
+        // solhint-disable-previous-line no-empty-blocks
+    }
+}
+
+/**
+ * @title SampleCrowdsale
+ * @dev This is an example of a fully fledged crowdsale.
+ * The way to add new features to a base crowdsale is by multiple inheritance.
+ * In this example we are providing following extensions:
+ * CappedCrowdsale - sets a max boundary for raised funds
+ * RefundableCrowdsale - set a min goal to be reached and returns funds if it's not met
+ * MintedCrowdsale - assumes the token can be minted by the crowdsale, which does so
+ * when receiving purchases.
+ *
+ * After adding multiple features it's good practice to run integration tests
+ * to ensure that subcontracts works together as intended.
+ */
+contract SampleCrowdsale is CappedCrowdsale, RefundableCrowdsale, MintedCrowdsale {
+    constructor (
+        uint256 openingTime,
+        uint256 closingTime,
+        uint256 rate,
+        address payable wallet,
+        uint256 cap,
+        ERC20Mintable token,
+        uint256 goal
+    )
+        public
+        Crowdsale(rate, wallet, token)
+        CappedCrowdsale(cap)
+        TimedCrowdsale(openingTime, closingTime)
+        RefundableCrowdsale(goal)
+    {
+        //As goal needs to be met for a successful crowdsale
+        //the value needs to less or equal than a cap which is limit for accepted funds
+        require(goal &lt;= cap);
+    }
+}
+</code></pre>
+
+<ul>
+<li>contract SampleCrowdsaleToken, 这是一个已经实现了ERC20的加密货币，直接is  ERC20Mintable 和 ERC20Detailed就可以，具备了发行和ERC20加密货币的基本功能；</li>
+<li>SampleCrowdsale 合约是一个简单的众筹合约，也是继承CappedCrowdsale，RefundableCrowdsale和MintedCrowdsale。在constructor声明相关变量就可以了。</li>
+<li>OpenZeppelin 由Zeppelin主导开发，Zeppelin本身是个安全审计机构，smart contract越来越热的今天，z看准了这个市场适时推出开源框架OpenZeppelin，另OpenZeppelin也支持ERC721加密货币的开发。ERC721是什么？之前大热的加密猫就是ERC721协议的加密货币。</li>
+</ul>
+
+
+<p>这次简单的做个记录，下次有时间再展开讲下怎么部署ERC20token。</p>
+]]></content>
+  </entry>
+  
+</feed>

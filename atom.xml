@@ -4,7 +4,7 @@
   <title><![CDATA[Ryan's Blog]]></title>
   <link href="http://ryan715.github.com/atom.xml" rel="self"/>
   <link href="http://ryan715.github.com/"/>
-  <updated>2017-04-05T22:00:00+08:00</updated>
+  <updated>2019-02-25T22:19:08+08:00</updated>
   <id>http://ryan715.github.com/</id>
   <author>
     <name><![CDATA[Ryan]]></name>
@@ -12,6 +12,134 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[How to build a ERC20 token by openzeppelin（使用openzeppelin发布erc20的加密币)]]></title>
+    <link href="http://ryan715.github.com/blog/2019/02/25/how-to-build-a-erc20-token-by-openzeppelin(shi-yong-openzeppelinfa-bu-erc20de-jia-mi-bi/"/>
+    <updated>2019-02-25T21:46:13+08:00</updated>
+    <id>http://ryan715.github.com/blog/2019/02/25/how-to-build-a-erc20-token-by-openzeppelin(shi-yong-openzeppelinfa-bu-erc20de-jia-mi-bi</id>
+    <content type="html"><![CDATA[<p>这两天重温了下ERC20，以前发布加密货币时候需要按照ERC20的要求编写相关方法以及属性，现在不需要那么复杂了。可以使用openzeppelin-solidity这个框架进行开发，十分的便捷。
+入门建议看下：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">pragma</span> <span class="nx">solidity</span> <span class="o">^</span><span class="mf">0.5</span><span class="p">.</span><span class="mi">2</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kr">import</span> <span class="s2">&quot;../crowdsale/validation/CappedCrowdsale.sol&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="kr">import</span> <span class="s2">&quot;../crowdsale/distribution/RefundableCrowdsale.sol&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="kr">import</span> <span class="s2">&quot;../crowdsale/emission/MintedCrowdsale.sol&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="kr">import</span> <span class="s2">&quot;../token/ERC20/ERC20Mintable.sol&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="kr">import</span> <span class="s2">&quot;../token/ERC20/ERC20Detailed.sol&quot;</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">/**</span>
+</span><span class='line'><span class="cm"> * @title SampleCrowdsaleToken</span>
+</span><span class='line'><span class="cm"> * @dev Very simple ERC20 Token that can be minted.</span>
+</span><span class='line'><span class="cm"> * It is meant to be used in a crowdsale contract.</span>
+</span><span class='line'><span class="cm"> */</span>
+</span><span class='line'><span class="nx">contract</span> <span class="nx">SampleCrowdsaleToken</span> <span class="nx">is</span> <span class="nx">ERC20Mintable</span><span class="p">,</span> <span class="nx">ERC20Detailed</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">constructor</span> <span class="p">()</span> <span class="kr">public</span> <span class="nx">ERC20Detailed</span><span class="p">(</span><span class="s2">&quot;Sample Crowdsale Token&quot;</span><span class="p">,</span> <span class="s2">&quot;SCT&quot;</span><span class="p">,</span> <span class="mi">18</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="c1">// solhint-disable-previous-line no-empty-blocks</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">/**</span>
+</span><span class='line'><span class="cm"> * @title SampleCrowdsale</span>
+</span><span class='line'><span class="cm"> * @dev This is an example of a fully fledged crowdsale.</span>
+</span><span class='line'><span class="cm"> * The way to add new features to a base crowdsale is by multiple inheritance.</span>
+</span><span class='line'><span class="cm"> * In this example we are providing following extensions:</span>
+</span><span class='line'><span class="cm"> * CappedCrowdsale - sets a max boundary for raised funds</span>
+</span><span class='line'><span class="cm"> * RefundableCrowdsale - set a min goal to be reached and returns funds if it&#39;s not met</span>
+</span><span class='line'><span class="cm"> * MintedCrowdsale - assumes the token can be minted by the crowdsale, which does so</span>
+</span><span class='line'><span class="cm"> * when receiving purchases.</span>
+</span><span class='line'><span class="cm"> *</span>
+</span><span class='line'><span class="cm"> * After adding multiple features it&#39;s good practice to run integration tests</span>
+</span><span class='line'><span class="cm"> * to ensure that subcontracts works together as intended.</span>
+</span><span class='line'><span class="cm"> */</span>
+</span><span class='line'><span class="nx">contract</span> <span class="nx">SampleCrowdsale</span> <span class="nx">is</span> <span class="nx">CappedCrowdsale</span><span class="p">,</span> <span class="nx">RefundableCrowdsale</span><span class="p">,</span> <span class="nx">MintedCrowdsale</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">constructor</span> <span class="p">(</span>
+</span><span class='line'>        <span class="nx">uint256</span> <span class="nx">openingTime</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">uint256</span> <span class="nx">closingTime</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">uint256</span> <span class="nx">rate</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">address</span> <span class="nx">payable</span> <span class="nx">wallet</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">uint256</span> <span class="nx">cap</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">ERC20Mintable</span> <span class="nx">token</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">uint256</span> <span class="nx">goal</span>
+</span><span class='line'>    <span class="p">)</span>
+</span><span class='line'>        <span class="kr">public</span>
+</span><span class='line'>        <span class="nx">Crowdsale</span><span class="p">(</span><span class="nx">rate</span><span class="p">,</span> <span class="nx">wallet</span><span class="p">,</span> <span class="nx">token</span><span class="p">)</span>
+</span><span class='line'>        <span class="nx">CappedCrowdsale</span><span class="p">(</span><span class="nx">cap</span><span class="p">)</span>
+</span><span class='line'>        <span class="nx">TimedCrowdsale</span><span class="p">(</span><span class="nx">openingTime</span><span class="p">,</span> <span class="nx">closingTime</span><span class="p">)</span>
+</span><span class='line'>        <span class="nx">RefundableCrowdsale</span><span class="p">(</span><span class="nx">goal</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="c1">//As goal needs to be met for a successful crowdsale</span>
+</span><span class='line'>        <span class="c1">//the value needs to less or equal than a cap which is limit for accepted funds</span>
+</span><span class='line'>        <span class="nx">require</span><span class="p">(</span><span class="nx">goal</span> <span class="o">&lt;=</span> <span class="nx">cap</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>contract SampleCrowdsaleToken, 这是一个已经实现了ERC20的加密货币，直接is  ERC20Mintable 和 ERC20Detailed就可以，具备了发行和ERC20加密货币的基本功能；</li>
+<li>SampleCrowdsale 合约是一个简单的众筹合约，也是继承CappedCrowdsale，RefundableCrowdsale和MintedCrowdsale。在constructor声明相关变量就可以了。</li>
+<li>OpenZeppelin 由Zeppelin主导开发，Zeppelin本身是个安全审计机构，smart contract越来越热的今天，z看准了这个市场适时推出开源框架OpenZeppelin，另OpenZeppelin也支持ERC721加密货币的开发。ERC721是什么？之前大热的加密猫就是ERC721协议的加密货币。</li>
+</ul>
+
+
+<p>这次简单的做个记录，下次有时间再展开讲下怎么部署ERC20token。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[capistrano puma deploy, rails console]]></title>
