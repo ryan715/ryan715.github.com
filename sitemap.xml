@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://ryan715.github.com/blog/2019/04/08/chuang-ye-idea-12ge-xiang-mu-,12ge-xiang-mu/</loc>
+<lastmod>2019-04-08T23:24:48+08:00</lastmod>
+</url>
+<url>
 <loc>http://ryan715.github.com/blog/2019/04/08/chuang-ye-chu-qi-ying-gai-xian-chuang-jian-wang-zhan-er-bu-shi-app/</loc>
 <lastmod>2019-04-08T23:11:28+08:00</lastmod>
 </url>
@@ -132,5 +136,8 @@
 </url>
 <url>
 <loc>http://ryan715.github.com/blog/categories/hu-lian-wang-kapwing-meme/</loc>
+</url>
+<url>
+<loc>http://ryan715.github.com/blog/categories/pieterlevels-shu-zi-you-min-hu-lian-wang/</loc>
 </url>
 </urlset>
